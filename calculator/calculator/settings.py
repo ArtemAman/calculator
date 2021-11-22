@@ -19,8 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5dq84!i)0nk@e^d=tfqc0__$0-g=jkr+j_%pxmvd_mva*&*oq7'
-# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -146,12 +145,8 @@ REST_FRAMEWORK = {
     ),
 }
 
-SOCIAL_AUTH_GITHUB_KEY = 'c56b77a2e94d40a3fc46'
-SOCIAL_AUTH_GITHUB_SECRET = 'a9d0c015901b95acf824627bd02c197b91606c07'
-
-
-# SOCIAL_AUTH_GITHUB_KEY = os.environ['SOCIAL_AUTH_GITHUB_KEY']
-# SOCIAL_AUTH_GITHUB_SECRET = os.environ['SOCIAL_AUTH_GITHUB_SECRET']
+SOCIAL_AUTH_GITHUB_KEY = os.environ['SOCIAL_AUTH_GITHUB_KEY']
+SOCIAL_AUTH_GITHUB_SECRET = os.environ['SOCIAL_AUTH_GITHUB_SECRET']
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'

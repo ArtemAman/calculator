@@ -8,6 +8,6 @@ services:
     image: calculator
     container_name: calcualator_cont
     restart: unless-stopped
-    env_file: .env1
+    env_file: .env
     ports:
       - "8000:8000"

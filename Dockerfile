@@ -4,7 +4,6 @@ COPY ./requirements.txt /app
 COPY . /app/
 RUN python -m pip install -r /app/requirements.txt
 WORKDIR /app/calculator
-RUN echo $SOCIAL_AUTH_GITHUB_KEY
 RUN python manage.py migrate
 ENTRYPOINT ["python","manage.py","runserver", "0.0.0.0:8000"]
 
