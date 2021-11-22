@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  calculator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: calculator
+    container_name: calcualator_cont
+    restart: unless-stopped
+    env_file: .env1
+    ports:
+      - "8000:8000"
