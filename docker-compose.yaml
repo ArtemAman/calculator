@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: calculator
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     container_name: calcualator_cont
     restart: unless-stopped
     env_file: .env
