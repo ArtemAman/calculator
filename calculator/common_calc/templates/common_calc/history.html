@@ -1,0 +1,38 @@
+{% extends "common_calc/main.html" %}
+
+
+{% block change %}
+<a href=" {% url 'calculator' %}" > Calculator</a>
+{% endblock %}
+
+
+{% block page %}
+
+
+{% if request.user.is_authenticated %}
+
+{% if calcs %}
+{% for calc in  calcs %}
+<div>
+    <span>{{ calc.operand_1 }}</span>
+    <span>{{ calc.math_operation }}</span>
+    <span>{{ calc.operand_2 }}</span>
+    <span>=</span>
+    <span>{{ calc.result }}</span>
+    <span>{{ calc.date }}</span>
+</div>
+
+
+{% endfor %}
+{% endif %}
+
+
+{% else %}
+<h3> In order look through history. please log in </h3>
+{% endif %}
+
+
+
+{% endblock %}
+
+</html>

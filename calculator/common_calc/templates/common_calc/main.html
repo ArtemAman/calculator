@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+
+
+    header {
+        text-align: right;
+        padding-right: 160px;
+        padding-top: 30px;
+        font-size: 18px;
+    }
+
+
+</style>
+
+
+{% block head %}
+<header>
+    {% if request.user.is_authenticated %}
+    <h3> You are logged in as - {{ request.user.username }}</h3>
+    {% block change %}
+    <a href=" {% url 'history' %}" > History</a>
+    {% endblock %}
+    <a href="{% url 'logout' %}"> Log out </a>
+
+    {% else %}
+    <h3> You are not logged into our site </h3>
+    <br>
+    <a href="{% url 'social:begin' 'github' %}">Login with Github</a>
+    {% endif %}
+</header>
+
+
+{% endblock %}
+
+{% block page %}
+
+
+{% if request.user.is_authenticated %}
+
+
+<form method="post" action="">
+    {% csrf_token %}
+    <div>{{ calc_form.as_p }}</div>
+    <button type="submit"> Calculate</button>
+</form>
+
+{% else %}
+<h3> In order to start calculations, please log in </h3>
+{% endif %}
+
+
+{% if result %}
+<p>Result</p>
+<p>{{ result }}</p>
+
+{% endif %}
+
+
+{% endblock %}
+
+</html>
